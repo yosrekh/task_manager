@@ -1,0 +1,40 @@
+        @keyframes slide-in-fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0;padding:20px;background:linear-gradient(120deg,#84fab0 0,#8fd3f4 100%);background-attachment:fixed;color:#333;min-height:100vh}
+        .container{max-width:600px;margin:40px auto;background:rgba(255,255,255,.75);-webkit-backdrop-filter:blur(15px);backdrop-filter:blur(15px);border-radius:12px;box-shadow:0 8px 32px 0 rgba(31,38,135,.2);border:1px solid rgba(255,255,255,.18);padding:30px;transition:margin .3s,padding .3s}
+        h1{color:#2c3e50;text-align:center;margin-bottom:25px;font-weight:600;transition:font-size .3s}
+        .task-form{display:flex;gap:10px;margin-bottom:20px}
+        .task-form input[type=text]{flex-grow:1;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:16px;transition:border-color .3s,box-shadow .3s}
+        .task-form input[type=text]:focus{outline:0;border-color:#8fd3f4;box-shadow:0 0 0 3px rgba(143,211,244,.5)}
+        .task-form button{padding:12px 20px;background:linear-gradient(45deg,#28a745,#218838);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;transition:transform .2s,box-shadow .2s;font-weight:500;flex-shrink:0}
+        .task-form button:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(40,167,69,.3)}
+        .task-form .cancel-link{padding:12px 0;text-decoration:none;color:#7f8c8d;font-size:16px;font-weight:500}
+        .task-filters{display:flex;gap:10px;margin-bottom:25px;padding-bottom:15px;border-bottom:1px solid rgba(0,0,0,.1);flex-wrap:wrap}
+        .task-filters a{text-decoration:none;color:#007bff;padding:8px 15px;border-radius:20px;font-weight:500;transition:all .3s}
+        .task-filters a:hover{background-color:rgba(0,123,255,.1)}
+        .task-filters a.filter-active{background-color:#007bff;color:#fff;box-shadow:0 2px 8px rgba(0,123,255,.3)}
+        .task-list{list-style:none;padding:0;margin:0}
+        .task-item{display:flex;align-items:center;justify-content:space-between;padding:15px;border-bottom:1px solid rgba(0,0,0,.08);opacity:0;animation:slide-in-fade-in .5s ease-out forwards;flex-wrap:wrap}
+        .task-item:last-child{border-bottom:none}
+        .task-item.task-done .task-text{text-decoration:line-through;color:#95a5a6}
+        .task-text{flex-grow:1;font-size:17px;padding-right:15px}
+        .task-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+        .task-actions form,.task-actions a{margin:0}
+        .task-actions button,.task-actions .btn-edit{padding:8px 12px;border:none;border-radius:5px;cursor:pointer;font-size:14px;color:#fff;text-decoration:none;display:inline-block;font-weight:500;transition:transform .2s ease}
+        .task-actions button:hover,.task-actions .btn-edit:hover{transform:scale(1.1)}
+        .btn-toggle-done{background:#2ecc71}.btn-toggle-not-done{background:#f39c12}.btn-edit{background:#9b59b6}
+        .btn-delete{background:#e74c3c;font-size:20px;font-weight:700;line-height:.8;padding:8px 14px}
+        .no-tasks{text-align:center;color:#7f8c8d;padding:20px;font-style:italic}
+        
+        /* NEW: Styles for drag-and-drop */
+        .task-item.draggable { cursor: grab; }
+        .task-item.draggable:active { cursor: grabbing; }
+        .drag-ghost { opacity: 0.4; background: #c8ebfb; } /* Style for the drop placeholder */
+        .drag-chosen { box-shadow: 0 5px 15px rgba(0,0,0,0.1); } /* Style for the item being dragged */
+        .drag-message { text-align: center; padding: 10px; margin-top: 10px; background-color: rgba(255, 235, 59, 0.2); border-radius: 5px; color: #5c5c5c; font-style: italic;}
+
+        @media (max-width:768px){body{padding:15px}.container{margin:20px auto;padding:25px}h1{font-size:32px}}
+        @media (max-width:600px){body{padding:10px}.container{margin:10px auto;padding:15px}h1{font-size:28px}.task-form{flex-direction:column}.task-item{flex-direction:column;align-items:flex-start;gap:15px}.task-text{padding-right:0;width:100%}.task-actions{width:100%;justify-content:flex-end}.task-item .task-form{width:100%;gap:15px}}
+
